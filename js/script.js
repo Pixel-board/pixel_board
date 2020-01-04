@@ -16,6 +16,11 @@ document.getElementById('clear').onclick = function() {
 };
 
 canvas.onmousedown = function(event) {
+    var x = event.offsetX;
+        var y = event.offsetY;
+        ctx.fillRect(x-mySize, y-mySize, mySize, mySize);
+        ctx.fillStyle = myColor;
+        ctx.fill();
     canvas.onmousemove = function(event) {
         var x = event.offsetX;
         var y = event.offsetY;
@@ -23,7 +28,7 @@ canvas.onmousedown = function(event) {
         ctx.fillStyle = myColor;
         ctx.fill();
     }
-    canvas.onmouseup = function(event) {
+    canvas.onmouseup = function() {
         canvas.onmousemove = null;
     }
 }
