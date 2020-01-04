@@ -2,6 +2,8 @@ var canvas = document.getElementById('cl');
 var ctx = canvas.getContext('2d');
 var myColor = 'black';
 var mySize = '10';
+var coll = document.getElementsByClassName("collapsible");
+var i;
 
 document.getElementById('colors').oninput = function() {
     myColor = this.value;
@@ -27,14 +29,11 @@ canvas.onmousedown = function(event) {
         ctx.fillRect(x-mySize, y-mySize, mySize, mySize);
         ctx.fillStyle = myColor;
         ctx.fill();
-    }
+    };
     canvas.onmouseup = function() {
         canvas.onmousemove = null;
-    }
+    };
 };
-
-var coll = document.getElementsByClassName("collapsible");
-var i;
 
 for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
@@ -44,6 +43,6 @@ for (i = 0; i < coll.length; i++) {
             content.style.display = "none";
         } else {
             content.style.display = "block";
-        }
+        };
     });
-}
+};
