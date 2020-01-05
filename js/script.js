@@ -7,6 +7,26 @@ var i;
 var tool = document.getElementsByClassName("tool");
 var j;
 
+document.getElementById('brush').onclick = function() {
+    canvas.onmousedown = function(event) {
+        var x = event.offsetX;
+            var y = event.offsetY;
+            ctx.fillRect(x-mySize, y-mySize, mySize, mySize);
+            ctx.fillStyle = myColor;
+            ctx.fill();
+        canvas.onmousemove = function(event) {
+            var x = event.offsetX;
+            var y = event.offsetY;
+            ctx.fillRect(x-mySize, y-mySize, mySize, mySize);
+            ctx.fillStyle = myColor;
+            ctx.fill();
+        };
+        canvas.onmouseup = function() {
+            canvas.onmousemove = null;
+        };
+    };
+};
+
 document.getElementById('eraser').onclick = function() {
     canvas.onmousedown = function(event) {
         var x = event.offsetX;
