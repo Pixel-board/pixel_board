@@ -2,15 +2,20 @@ var canvas = document.getElementById('cl');
 var ctx = canvas.getContext('2d');
 var myColor = 'black';
 var mySize = '10';
+var eraserSize = '20';
 var coll = document.getElementsByClassName("collapsible");
 var i;
 var tool = document.getElementsByClassName("tool");
 var j;
 
+document.getElementById('pouring').onclick = function() {
+    //я думаю над этим.
+};
+
 document.getElementById('brush').onclick = function() {
     canvas.onmousedown = function(event) {
         var x = event.offsetX;
-            var y = event.offsetY;
+        var y = event.offsetY;
             ctx.fillRect(x-mySize, y-mySize, mySize, mySize);
             ctx.fillStyle = myColor;
             ctx.fill();
@@ -31,13 +36,13 @@ document.getElementById('eraser').onclick = function() {
     canvas.onmousedown = function(event) {
         var x = event.offsetX;
         var y = event.offsetY;
-            ctx.fillRect(x-15, y-15, 15, 20);
+            ctx.fillRect(x-eraserSize, y-eraserSize, eraserSize, eraserSize);
             ctx.fillStyle = 'white';
             ctx.fill();
         canvas.onmousemove = function(event) {
             var x = event.offsetX;
             var y = event.offsetY;
-            ctx.fillRect(x-15, y-15, 15, 20);
+            ctx.fillRect(x-eraserSize, y-eraserSize, eraserSize, eraserSize);
             ctx.fillStyle = 'white';
             ctx.fill();
         };
@@ -53,6 +58,10 @@ document.getElementById('colors').oninput = function() {
 
 document.getElementById('size').oninput = function() {
     mySize = this.value;
+};
+
+document.getElementById('Esize').oninput = function() {
+    eraserSize = this.value;
 };
 
 document.getElementById('clear').onclick = function() {
