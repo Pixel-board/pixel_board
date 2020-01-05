@@ -4,6 +4,28 @@ var myColor = 'black';
 var mySize = '10';
 var coll = document.getElementsByClassName("collapsible");
 var i;
+var tool = document.getElementsByClassName("tool");
+var j;
+
+document.getElementById('eraser').onclick = function() {
+    canvas.onmousedown = function(event) {
+        var x = event.offsetX;
+        var y = event.offsetY;
+            ctx.fillRect(x-15, y-15, 15, 20);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+        canvas.onmousemove = function(event) {
+            var x = event.offsetX;
+            var y = event.offsetY;
+            ctx.fillRect(x-15, y-15, 15, 20);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+        };
+        canvas.onmouseup = function() {
+            canvas.onmousemove = null;
+        };
+    };
+};
 
 document.getElementById('colors').oninput = function() {
     myColor = this.value;
@@ -43,6 +65,18 @@ for (i = 0; i < coll.length; i++) {
             content.style.display = "none";
         } else {
             content.style.display = "block";
+        };
+    });
+};
+
+for (j = 0; j < tool.length; j++) {
+    tool[j].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var toll = this.nextElementSibling;
+        if (toll.style.display === "block") {
+            toll.style.display = "none";
+        } else {
+            toll.style.display = "block";
         };
     });
 };
