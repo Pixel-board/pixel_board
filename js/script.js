@@ -3,6 +3,7 @@ var ctx = canvas.getContext('2d');
 var myColor = 'black';
 var mySize = '10';
 var eraserSize = '20';
+var pencilSize = '1';
 var coll = document.getElementsByClassName("collapsible");
 var i;
 var tool = document.getElementsByClassName("tool");
@@ -23,6 +24,26 @@ document.getElementById('brush').onclick = function() {
             var x = event.offsetX;
             var y = event.offsetY;
             ctx.fillRect(x-mySize, y-mySize, mySize, mySize);
+            ctx.fillStyle = myColor;
+            ctx.fill();
+        };
+        canvas.onmouseup = function() {
+            canvas.onmousemove = null;
+        };
+    };
+};
+
+document.getElementById('pencil').onclick = function() {
+    canvas.onmousedown = function(event) {
+        var x = event.offsetX;
+        var y = event.offsetY;
+            ctx.fillRect(x-pencilSize, y-pencilSize, pencilSize, pencilSize);
+            ctx.fillStyle = myColor;
+            ctx.fill();
+        canvas.onmousemove = function(event) {
+            var x = event.offsetX;
+            var y = event.offsetY;
+            ctx.fillRect(x-pencilSize, y-pencilSize, pencilSize, pencilSize);
             ctx.fillStyle = myColor;
             ctx.fill();
         };
