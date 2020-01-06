@@ -60,7 +60,7 @@ document.getElementById('size').oninput = function() {
     mySize = this.value;
 };
 
-document.getElementById('Esize').oninput = function() {
+document.getElementById('erasersize').oninput = function() {
     eraserSize = this.value;
 };
 
