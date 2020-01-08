@@ -1,7 +1,7 @@
 body {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 45px;
+    margin: 30px;
     user-select: none;
     line-height: 0px;
     text-decoration: none;
@@ -18,7 +18,7 @@ body {
 }
 
 .collapsible {
-    background-color: #eee;
+    background-color: rgb(214, 214, 214);
     border-radius: 10px;
     color: #444;
     cursor: pointer;
@@ -45,7 +45,7 @@ body {
 }
 
 .tool {
-    background-color: #eee;
+    background-color: rgb(214, 214, 214);;
     border-radius: 10px;
     color: #444;
     cursor: pointer;
