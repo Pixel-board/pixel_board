@@ -70,3 +70,11 @@ body {
 .active, .tool:hover {
     background-color: #ccc;
 }
+
+.immage {
+    transition: 1.3s; /* Время эффекта */
+}
+
+.immage:hover {
+    transform: scale(1.05); /* Увеличиваем масштаб */
+}
