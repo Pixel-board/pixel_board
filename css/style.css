@@ -18,7 +18,7 @@ body {
 }
 
 .collapsible {
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(228, 228, 228);
     border-radius: 10px;
     color: #444;
     cursor: pointer;
@@ -45,7 +45,7 @@ body {
 }
 
 .tool {
-    background-color: rgb(214, 214, 214);;
+    background-color: rgb(228, 228, 228);
     border-radius: 10px;
     color: #444;
     cursor: pointer;
