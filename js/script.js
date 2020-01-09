@@ -13,6 +13,10 @@ document.getElementById('pouring').onclick = function() {
     //я думаю над этим.
 };
 
+document.getElementById('pipette').onclick = function() {
+    //я думаю над этим.
+};
+
 document.getElementById('brush').onclick = function() {
     canvas.onmousedown = function(event) {
         var x = event.offsetX;

@@ -78,3 +78,9 @@ body {
 .immage:hover {
     transform: scale(1.05); /* Увеличиваем масштаб */
 }
+
+.download {
+    text-decoration: none;
+    color: black;
+    cursor: unset;
+}
