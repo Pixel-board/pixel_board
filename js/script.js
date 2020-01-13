@@ -4,133 +4,121 @@ var myColor = 'black';
 var mySize = '10';
 var eraserSize = '20';
 var pencilSize = '1';
-var coll = document.getElementsByClassName("collapsible");
-var i;
-var tool = document.getElementsByClassName("tool");
-var j;
+var coll = document.getElementsByClassName('collapsible');
+var tool = document.getElementsByClassName('tool');
+var isDrawing = false;
+var currentTool = 'brush';
 
-document.getElementById('pouring').onclick = function() {
-    //я думаю над этим.
-};
+init();
 
-document.getElementById('pipette').onclick = function() {
-    //я думаю над этим.
-};
+function init() {
+    canvasHandlers();
+    toolsHandlers();
+    panelsListeners();
+}
 
-document.getElementById('brush').onclick = function() {
-    canvas.onmousedown = function(event) {
+function canvasHandlers() {
+    canvas.onmousedown = function (event) {
         var x = event.offsetX;
         var y = event.offsetY;
-            ctx.fillRect(x-mySize, y-mySize, mySize, mySize);
-            ctx.fillStyle = myColor;
-            ctx.fill();
-        canvas.onmousemove = function(event) {
-            var x = event.offsetX;
-            var y = event.offsetY;
-            ctx.fillRect(x-mySize, y-mySize, mySize, mySize);
-            ctx.fillStyle = myColor;
-            ctx.fill();
-        };
-        canvas.onmouseup = function() {
-            canvas.onmousemove = null;
-        };
-    };
-};
 
-document.getElementById('pencil').onclick = function() {
-    canvas.onmousedown = function(event) {
+        isDrawing = true;
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = myColor;
+
+        switch (currentTool) {
+            case 'pencil':
+                ctx.lineWidth = 2;
+                break;
+            case 'brush':
+                ctx.lineWidth = mySize;
+                break;
+            case 'eraser':
+                ctx.strokeStyle = 'white';
+                break;
+        }
+
+        ctx.moveTo(x, y);
+    };
+
+    canvas.onmousemove = function (event) {
         var x = event.offsetX;
         var y = event.offsetY;
-            ctx.fillRect(x-pencilSize, y-pencilSize, pencilSize, pencilSize);
-            ctx.fillStyle = myColor;
-            ctx.fill();
-        canvas.onmousemove = function(event) {
-            var x = event.offsetX;
-            var y = event.offsetY;
-            ctx.fillRect(x-pencilSize, y-pencilSize, pencilSize, pencilSize);
-            ctx.fillStyle = myColor;
-            ctx.fill();
-        };
-        canvas.onmouseup = function() {
-            canvas.onmousemove = null;
-        };
+
+        if (isDrawing) {
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
     };
-};
 
-document.getElementById('eraser').onclick = function() {
-    canvas.onmousedown = function(event) {
-        var x = event.offsetX;
-        var y = event.offsetY;
-            ctx.fillRect(x-eraserSize, y-eraserSize, eraserSize, eraserSize);
-            ctx.fillStyle = 'white';
-            ctx.fill();
-        canvas.onmousemove = function(event) {
-            var x = event.offsetX;
-            var y = event.offsetY;
-            ctx.fillRect(x-eraserSize, y-eraserSize, eraserSize, eraserSize);
-            ctx.fillStyle = 'white';
-            ctx.fill();
-        };
-        canvas.onmouseup = function() {
-            canvas.onmousemove = null;
-        };
+    canvas.onmouseup = function () {
+        isDrawing = false;
     };
-};
+}
 
-document.getElementById('colors').oninput = function() {
-    myColor = this.value;
-};
-
-document.getElementById('size').oninput = function() {
-    mySize = this.value;
-};
-
-document.getElementById('erasersize').oninput = function() {
-    eraserSize = this.value;
-};
-
-document.getElementById('clear').onclick = function() {
-    ctx.clearRect(0, 0, 1850, 500);
-};
-
-canvas.onmousedown = function(event) {
-    var x = event.offsetX;
-        var y = event.offsetY;
-        ctx.fillRect(x-mySize, y-mySize, mySize, mySize);
-        ctx.fillStyle = myColor;
-        ctx.fill();
-    canvas.onmousemove = function(event) {
-        var x = event.offsetX;
-        var y = event.offsetY;
-        ctx.fillRect(x-mySize, y-mySize, mySize, mySize);
-        ctx.fillStyle = myColor;
-        ctx.fill();
+function toolsHandlers() {
+    document.getElementById('colors').oninput = function () {
+        myColor = this.value;
     };
-    canvas.onmouseup = function() {
-        canvas.onmousemove = null;
+
+    document.getElementById('size').oninput = function () {
+        mySize = this.value;
     };
-};
 
-for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        };
-    });
-};
+    document.getElementById('erasersize').oninput = function () {
+        eraserSize = this.value;
+    };
 
-for (j = 0; j < tool.length; j++) {
-    tool[j].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var toll = this.nextElementSibling;
-        if (toll.style.display === "block") {
-            toll.style.display = "none";
-        } else {
-            toll.style.display = "block";
-        };
-    });
-};
+    document.getElementById('clear').onclick = function () {
+        ctx.clearRect(0, 0, 1850, 500);
+    };
+
+    document.getElementById('pouring').onclick = function () {
+        //я думаю над этим.
+    };
+
+    document.getElementById('pipette').onclick = function () {
+        //я думаю над этим.
+    };
+
+    document.getElementById('brush').onclick = function () {
+        currentTool = 'brush';
+    };
+
+    document.getElementById('pencil').onclick = function () {
+        currentTool = 'pencil';
+    };
+
+    document.getElementById('eraser').onclick = function () {
+        currentTool = 'eraser';
+    };
+}
+
+function panelsListeners() {
+    for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener('click', function () {
+            this.classList.toggle('active');
+            var content = this.nextElementSibling;
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+            } else {
+                content.style.display = 'block';
+            };
+        });
+    }
+
+    for (var i = 0; i < tool.length; i++) {
+        tool[i].addEventListener('click', function () {
+            this.classList.toggle('active');
+            var toll = this.nextElementSibling;
+            if (toll.style.display === 'block') {
+                toll.style.display = 'none';
+            } else {
+                toll.style.display = 'block';
+            };
+        });
+    }
+}
