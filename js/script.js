@@ -1,7 +1,7 @@
 var canvas = document.getElementById('cl');
 var ctx = canvas.getContext('2d');
 var myColor = 'black';
-var mySize = '10';
+var defaultBrushSize = document.getElementById('size').value;
 var eraserSize = '20';
 var pencilSize = '1';
 var coll = document.getElementsByClassName('collapsible');
@@ -31,13 +31,14 @@ function canvasHandlers() {
 
         switch (currentTool) {
             case 'pencil':
-                ctx.lineWidth = 2;
+                ctx.lineWidth = pencilSize;
                 break;
             case 'brush':
-                ctx.lineWidth = mySize;
+                ctx.lineWidth = defaultBrushSize;
                 break;
             case 'eraser':
                 ctx.strokeStyle = 'white';
+                ctx.lineWidth = eraserSize;
                 break;
         }
 
@@ -65,7 +66,7 @@ function toolsHandlers() {
     };
 
     document.getElementById('size').oninput = function () {
-        mySize = this.value;
+        defaultBrushSize = this.value;
     };
 
     document.getElementById('erasersize').oninput = function () {
