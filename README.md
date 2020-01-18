@@ -8,17 +8,18 @@
 <h2>Game features</h2>
 <h3>Done</h3>
 <ul>
-    <li>Clear cheet
-    <li>Color(pencil, brush)
-    <li>Brush size(pencil)
-    <li>Eraser size
-    <li>Brush
-    <li>Eraser
-    <li>Pencil
+    <li>✅ Clear cheet
+    <li>✅ Color(pencil, brush)
+    <li>✅ Brush size(pencil)
+    <li>✅ Eraser size
+    <li>✅ Brush
+    <li>✅ Eraser
+    <li>✅ Pencil
+    <li>✅ Canvas size(heigth, width)
 </ul>
 <h3>In developing</h3>
 <ul>
-    <li>Download picture(button)
-    <li>Pouring
-    <li>Pipette
+    <li>❌ Download picture(button)
+    <li>❌ Pouring
+    <li>❌ Pipette
 </ul>
