@@ -42,7 +42,7 @@ function canvasHandlers() {
                 break;
         }
 
-        ctx.moveTo(x, y);
+        ctx.moveTo(x, y);    
     };
 
     canvas.onmousemove = function (event) {
