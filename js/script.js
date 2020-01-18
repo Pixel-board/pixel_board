@@ -76,6 +76,14 @@ function toolsHandlers() {
         defaultBrushSize = this.value;
     };
 
+    document.getElementById('canvasWidth').oninput = function () {
+        canvas.width = this.value;
+    };
+
+    document.getElementById('canvasHeight').oninput = function () {
+        canvas.height = this.value;
+    };
+
     document.getElementById('erasersize').oninput = function () {
         eraserSize = this.value;
     };

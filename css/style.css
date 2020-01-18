@@ -47,33 +47,6 @@ body {
     background-color: #ccc;
 }
 
-.tool {
-    background-color: rgb(228, 228, 228);
-    border-radius: 10px;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-}
-
-.toll {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    width: 100%;
-    font-size: 14px;
-}
-
-.active, .tool:hover {
-    background-color: #ccc;
-}
-
 .immage {
     transition: 1.3s; /* Время эффекта */
 }
