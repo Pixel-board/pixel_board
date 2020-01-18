@@ -12,15 +12,18 @@
     <p></p>
     <button id="clear" class="clear">Сlear sheet</button>
     <button><a download class="download">Download picture</a></button>
-    <canvas id="cl" width="1850" height="500"></canvas>
+    <canvas id="cl"></canvas>
+    
     <button class="collapsible">Settings</button>
-        <div class="content">
-            <br><h3>Color  <input type="color" id="colors">&emsp;&emsp;&emsp;&emsp;Brush size:  <input type="number" id="size" value="10">&emsp;&emsp;&emsp;&emsp;Eraser size:  <input type="number" id="erasersize"></h3>
-        </div>
-    <button class="tool">Tools</button>
-        <div class="toll">
-            <br><h3>Eraser: <button id="eraser">eraser</button>&emsp;&emsp;&emsp; Brush: <button id="brush">brush</button>&emsp;&emsp;&emsp; Pouring: <button id="pouring">pouring</button>&emsp;&emsp;&emsp; Pencil: <button id="pencil">pencil</button>&emsp;&emsp;&emsp; Pipette: <button id="pipette">pipette</button></h3>
-        </div>
+    <div class="content">
+        <br><h3>Color  <input type="color" id="colors">&emsp;&emsp;&emsp;&emsp;Brush size:  <input type="number" id="size" value="10">&emsp;&emsp;&emsp;&emsp;Eraser size:  <input type="number" id="erasersize"></h3>
+    </div>
+
+    <button class="collapsible">Tools</button>
+    <div class="content">
+        <br><h3>Eraser: <button id="eraser">eraser</button>&emsp;&emsp;&emsp; Brush: <button id="brush">brush</button>&emsp;&emsp;&emsp; Pouring: <button id="pouring">pouring</button>&emsp;&emsp;&emsp; Pencil: <button id="pencil">pencil</button>&emsp;&emsp;&emsp; Pipette: <button id="pipette">pipette</button></h3>
+    </div>
+
     <script src="./js/script.js"></script>
 </body>
 </html>

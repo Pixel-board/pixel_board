@@ -8,10 +8,15 @@ var coll = document.getElementsByClassName('collapsible');
 var tool = document.getElementsByClassName('tool');
 var isDrawing = false;
 var currentTool = 'brush';
+var canvasWidth = window.innerWidth - 85;
+var canvasHeight = window.innerHeight;
 
 init();
 
 function init() {
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+
     canvasHandlers();
     toolsHandlers();
     panelsListeners();
@@ -43,6 +48,8 @@ function canvasHandlers() {
         }
 
         ctx.moveTo(x, y);    
+        ctx.lineTo(x, y);
+        ctx.stroke();
     };
 
     canvas.onmousemove = function (event) {
@@ -74,7 +81,7 @@ function toolsHandlers() {
     };
 
     document.getElementById('clear').onclick = function () {
-        ctx.clearRect(0, 0, 1850, 500);
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     };
 
     document.getElementById('pouring').onclick = function () {
