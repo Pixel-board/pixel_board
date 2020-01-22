@@ -42,7 +42,9 @@ function canvasHandlers() {
                 ctx.lineWidth = defaultBrushSize;
                 break;
             case 'eraser':
-                ctx.strokeStyle = 'white';
+                ctx.globalCompositeOperation="destination-out";
+                ctx.arc(lastX, lastY, 8, 0, Math.PI * 2,false);
+                ctx.fill();;
                 ctx.lineWidth = eraserSize;
                 break;
         }
@@ -100,6 +102,11 @@ function toolsHandlers() {
         //я думаю над этим.
     };
 
+    document.getElementById('download').onclick = function () {
+        var image = getImage(document.getElementById("cl"));
+        saveImage(image);
+    };
+
     document.getElementById('brush').onclick = function () {
         currentTool = 'brush';
     };
@@ -111,6 +118,21 @@ function toolsHandlers() {
     document.getElementById('eraser').onclick = function () {
         currentTool = 'eraser';
     };
+}
+
+function getImage(canvas){
+    var imageData = canvas.toDataURL();
+    var image = new Image();
+    image.src = imageData;
+    return image;
+}
+
+function saveImage(image) {
+    var link = document.createElement("a");
+ 
+    link.setAttribute("href", image.src);
+    link.setAttribute("download", "canvasImage");
+    link.click();
 }
 
 function panelsListeners() {

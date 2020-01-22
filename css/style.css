@@ -45,6 +45,7 @@ body {
 
 .active, .collapsible:hover {
     background-color: #ccc;
+    transition: 0.6s;
 }
 
 .immage {
