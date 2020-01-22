@@ -42,10 +42,8 @@ function canvasHandlers() {
                 ctx.lineWidth = defaultBrushSize;
                 break;
             case 'eraser':
-                ctx.globalCompositeOperation="destination-out";
-                ctx.arc(lastX, lastY, 8, 0, Math.PI * 2,false);
-                ctx.fill();;
                 ctx.lineWidth = eraserSize;
+                ctx.globalCompositeOperation="destination-out";
                 break;
         }
 
