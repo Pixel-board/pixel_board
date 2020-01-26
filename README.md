@@ -21,15 +21,15 @@ Below you will see which functions are already ready, and which still do not wor
     <li>✅ Brush size(pencil)
     <li>✅ Eraser size
     <li>✅ Brush
-    <li>✅ Eraser
     <li>✅ Pencil
     <li>✅ Canvas size(heigth, width)
+    <li>✅ Download picture(button)  
 </ul>
 
 ### In developing
 
 <ul>
-    <li>❌ Download picture(button)
+    <li>✅❌ Eraser
     <li>❌ Pouring
     <li>❌ Pipette
 </ul>
