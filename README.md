@@ -16,7 +16,6 @@ Below you will see which functions are already ready, and which still do not wor
 ### Done
 
 <ul>
-    <li>✅ Clear cheet
     <li>✅ Color(pencil, brush)
     <li>✅ Brush size(pencil)
     <li>✅ Eraser size
@@ -29,6 +28,7 @@ Below you will see which functions are already ready, and which still do not wor
 ### In developing
 
 <ul>
+    <li>✅❌ Clear cheet
     <li>✅❌ Eraser
     <li>❌ Pouring
     <li>❌ Pipette
